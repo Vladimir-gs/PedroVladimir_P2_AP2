@@ -24,7 +24,7 @@ object AppModule {
             .build()
     @Provides
     @Singleton
-    fun ProvideTDao(appDataBase: AppDataBase) = appDataBase.tDao()
+    fun ProvideTDao(appDataBase: AppDataBase) = appDataBase.depositoDao()
 
 
 }

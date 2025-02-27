@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import edu.ucne.pedrovladimir_p2_ap2.data.remote.DepositoApi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
@@ -24,13 +25,13 @@ object ApiModule {
             .add(DateAdapter())
             .build()
 
-//    @Singleton
-//    @Provides
-//    fun provideApi(moshi: Moshi): TApi {
-//        return Retrofit.Builder()
-//            .baseUrl(BASE_URL)
-//            .addConverterFactory(MoshiConverterFactory.create(moshi))
-//            .build()
-//            .create(TApi::class.java)
-//    }
+    @Singleton
+    @Provides
+    fun provideApi(moshi: Moshi): DepositoApi  {
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .build()
+            .create(DepositoApi::class.java)
+    }
 }

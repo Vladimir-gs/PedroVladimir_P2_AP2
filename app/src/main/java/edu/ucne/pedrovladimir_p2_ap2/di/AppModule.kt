@@ -25,6 +25,4 @@ object AppModule {
     @Provides
     @Singleton
     fun ProvideTDao(appDataBase: AppDataBase) = appDataBase.depositoDao()
-
-
 }

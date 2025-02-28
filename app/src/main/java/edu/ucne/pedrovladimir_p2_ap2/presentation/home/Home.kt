@@ -48,7 +48,7 @@ fun Home(
         {
             Button(
                 modifier = Modifier.padding(15.dp),
-                onClick = { navController.navigate(Screen.DepList) }
+                onClick = { navController.navigate(Screen.DepositoLis) }
             ) {
                 Icon(
                     imageVector = Icons.Default.AccountCircle,

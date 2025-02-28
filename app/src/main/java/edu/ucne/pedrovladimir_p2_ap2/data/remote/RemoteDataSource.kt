@@ -6,7 +6,7 @@ import javax.inject.Inject
 class RemoteDataSource @Inject constructor(
     private val depositoApi: DepositoApi
 ){
-    suspend fun getAllDepositos(): List<DepositoDto> = depositoApi.getAllDepositos()
+    suspend fun getAllDepositos() = depositoApi.getAllDepositos()
 
     suspend fun getDeposito(id: Int): DepositoDto = depositoApi.getDeposito(id)
 

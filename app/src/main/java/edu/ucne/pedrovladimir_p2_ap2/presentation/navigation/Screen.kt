@@ -7,12 +7,11 @@ sealed class Screen {
     object Home : Screen()
 
     @Serializable
-    data object DepList : Screen()
+    data object DepositoLis : Screen()
 
     @Serializable
     data class Deposito(val DepositoId: Int): Screen()
 
-
     @Serializable
-    data class DepEdit(val DepositoId: Int): Screen()
+    data class DepositoEdit(val DepositoId: Int): Screen()
 }

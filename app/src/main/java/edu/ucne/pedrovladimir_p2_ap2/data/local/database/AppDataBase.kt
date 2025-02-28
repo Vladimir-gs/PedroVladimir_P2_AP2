@@ -8,7 +8,7 @@ import edu.ucne.pedrovladimir_p2_ap2.data.local.entity.DepositoEntity
 
 @Database(
     entities = [DepositoEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 @TypeConverters(Converters::class)

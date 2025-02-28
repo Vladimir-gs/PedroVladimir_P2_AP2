@@ -2,6 +2,7 @@ package edu.ucne.pedrovladimir_p2_ap2.presentation.depositos
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import edu.ucne.pedrovladimir_p2_ap2.data.remote.Resource
 import edu.ucne.pedrovladimir_p2_ap2.data.remote.dto.DepositoDto
 import edu.ucne.pedrovladimir_p2_ap2.data.repository.ApiRepository
@@ -11,8 +12,10 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.util.Date
+import javax.inject.Inject
 
-class DepositoViewModel(
+@HiltViewModel
+class DepositoViewModel @Inject constructor(
     private val apiRepository: ApiRepository
 ): ViewModel() {
     private val _uiState = MutableStateFlow(UiState())
@@ -67,10 +70,10 @@ class DepositoViewModel(
     }
 
 
-    fun selectedDeposito(ticketId: Int) {
+    fun selectedDeposito(idDeposito: Int) {
         viewModelScope.launch {
-            if (ticketId > 0) {
-                val depositoApi = apiRepository.getDeposito(ticketId)
+            if (idDeposito > 0) {
+                val depositoApi = apiRepository.getDeposito(idDeposito)
                 _uiState.update {
                     it.copy(
                         idDeposito = depositoApi?.idDeposito,

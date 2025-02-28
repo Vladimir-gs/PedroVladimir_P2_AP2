@@ -19,9 +19,8 @@ class ApiRepository @Inject constructor(
                 val depositos = dataSource.getAllDepositos()
                 emit(Resource.Suceess(depositos))
             } catch (e: HttpException) {
-                val errorMessage = e.response()?.errorBody()?.string() ?: e.message()
-                Log.e("DepositoRepository", "HttpException: $errorMessage")
-                emit(Resource.Error("Error de conexion $errorMessage"))
+                Log.e("DepositoRepository", "HttpException: ${e.message}")
+                emit(Resource.Error("Error de conexion ${e.message}"))
             } catch (e: Exception) {
                 Log.e("DepositoRepository", "Exception: ${e.message}")
                 emit(Resource.Error("Error: ${e.message}"))
